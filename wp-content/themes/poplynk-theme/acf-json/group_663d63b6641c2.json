@@ -1,0 +1,502 @@
+{
+    "key": "group_663d63b6641c2",
+    "title": "Channel details",
+    "fields": [
+        {
+            "key": "field_663d63b7b85a5",
+            "label": "Channel ID",
+            "name": "youtube_channel_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "readonly": false
+        },
+        {
+            "key": "field_663f8aca7521f",
+            "label": "Channel ETAG",
+            "name": "youtube_channel_etag",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663d65f0c9a8b",
+            "label": "Channel Image",
+            "name": "youtube_channel_image",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663d66b0290c2",
+            "label": "Channel Description",
+            "name": "youtube_channel_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 6,
+            "placeholder": "",
+            "new_lines": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663f8afd75220",
+            "label": "Custom URL",
+            "name": "youtube_channel_custom_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "16.65",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663f8c17defc3",
+            "label": "Country",
+            "name": "youtube_channel_country",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "16.65",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663f8b7e75221",
+            "label": "Published at",
+            "name": "youtube_channel_published",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "16.65",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "readonly": true
+        },
+        {
+            "key": "field_663f8e9433d5c",
+            "label": "Views",
+            "name": "youtube_channel_views",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "16.65",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663f8ecf33d5d",
+            "label": "Subscribers",
+            "name": "youtube_channel_subscribers",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "16.65",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663f8ee733d5e",
+            "label": "Videos",
+            "name": "youtube_channel_videos",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "16.65",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 0,
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "",
+            "readonly": true
+        },
+        {
+            "key": "field_663d68d215992",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<button type=\"button\" class=\"button-secondary\" id=\"ajax-revalidate\" data-target=\"channel\" data-value=\"\" data-type=\"tag\">Revalidate Channel<\/button>",
+            "new_lines": "wpautop",
+            "esc_html": 0,
+            "readonly": false
+        },
+        {
+            "key": "field_668174790ac99",
+            "label": "Subscriber Goals",
+            "name": "youtube_channel_subscriber_goals",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Goal",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_668175e00ac9b",
+                    "label": "Goal #",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "accordion",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0,
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_6681c065a47d4",
+                    "label": "Progress",
+                    "name": "progress",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "progress": "In Progress",
+                        "successful": "Successful"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_668175120ac9a",
+                    "label": "Subscriber goal",
+                    "name": "subscribers",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1000": "1 mil",
+                        "5000": "5 mil",
+                        "10000": "10 mil",
+                        "50000": "50 mil",
+                        "100000": "100 mil",
+                        "250000": "250 mil",
+                        "500000": "500 mil",
+                        "1000000": "1 milhão",
+                        "5000000": "5 milhões",
+                        "10000000": "10 milhões",
+                        "20000000": "20 milhões",
+                        "50000000": "50 milhões",
+                        "100000000": "100 milhões",
+                        "150000000": "150 milhões",
+                        "250000000": "250 milhões",
+                        "500000000": "500 milhões",
+                        "1000000000": "1 bilhão"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_6681b92d38a7e",
+                    "label": "Reward Type",
+                    "name": "reward_type",
+                    "aria-label": "",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "reward_type",
+                    "add_term": 0,
+                    "save_terms": 0,
+                    "load_terms": 0,
+                    "return_format": "id",
+                    "field_type": "select",
+                    "allow_null": 0,
+                    "bidirectional": 0,
+                    "multiple": 0,
+                    "bidirectional_target": [],
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_668177830ac9d",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_66817aba6fbbf",
+                    "label": "File",
+                    "name": "file",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_66817aef6fbc0",
+                    "label": "CTA Link",
+                    "name": "cta_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                },
+                {
+                    "key": "field_66817b076fbc1",
+                    "label": "CTA Text",
+                    "name": "cta_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "readonly": false,
+                    "parent_repeater": "field_668174790ac99"
+                }
+            ],
+            "readonly": false
+        },
+        {
+            "key": "field_6681c917f16c5",
+            "label": "Next revalidation",
+            "name": "youtube_channel_next_revalidation",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "readonly": false
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "youtube_channels"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1720977234
+}
