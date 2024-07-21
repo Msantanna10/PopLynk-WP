@@ -31,14 +31,13 @@ function customize_admin_login() { ?>
     }
     .login h1 a {
       opacity: 1 !important;
-      background-image: url('<?php echo get_template_directory_uri(); ?>/img/logo-big.webp') !important;
+      background-image: url('<?php echo get_template_directory_uri(); ?>/img/logo-white.svg') !important;
       background-size: contain !important;
       width: 100% !important;
       height: 60px !important;
       background-position: center !important;
       margin: 0px auto !important;
       box-shadow: unset;
-      filter: brightness(0) invert(1);
     } 
     .login .message, .login #login_error {
       margin: 20px 0px !important

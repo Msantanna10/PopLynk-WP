@@ -58,7 +58,7 @@ function user_login_callback($request) {
     $subject = 'Confirmação de conta';
     $message = "Quase lá! Basta <a target='_blank' href='$activation_link'>clicar aqui</a> para ativar sua conta.
     <br><br>
-    Leva menos de 5 segundos e você vai conseguir adicionar sua primeira recompensa de engajamento ao seu canal do Youtube!
+    Leva menos de 5 segundos e você vai conseguir adicionar sua primeira meta ao seu canal do Youtube!
     <br><br>
     Nos vemos lá!
     <br><br>$site_name";
@@ -80,6 +80,11 @@ function user_login_callback($request) {
       return api_error('Email ou senha estão incorretos.');
     }
     $user_id = $user->ID;
+  }
+
+  // Block for non-admins (temporary)
+  if($user_id != 1) {
+    return api_error('Estamos passando por melhorias e estaremos disponíveis em breve.');
   }
 
   // Success

@@ -42,7 +42,7 @@ function user_registration_callback($request) {
   $user_data = array(
     'user_email' => $email,
     'user_pass' => $password,
-    'user_login' => strstr($email, '@', true) . '-' . uniqid(), // everthing before @ + unique ID to be sure
+    'user_login' => strstr($email, '@', true) . '-' . generate_unique_id(8),
     'user_registered' => current_time('mysql'),
     'role' => 'pending'
   );
@@ -63,7 +63,7 @@ function user_registration_callback($request) {
     $subject = 'Confirmação de conta';
     $message = "Conta criada com sucesso! Basta <a target='_blank' href='$activation_link'>clicar aqui</a> para ativar sua conta.
     <br><br>
-    Leva menos de 5 segundos e você vai conseguir adicionar sua primeira recompensa de engajamento ao seu canal do Youtube!
+    Leva menos de 5 segundos e você vai conseguir adicionar sua primeira meta ao seu canal do Youtube!
     <br><br>
     Nos vemos lá!
     <br><br>$site_name";

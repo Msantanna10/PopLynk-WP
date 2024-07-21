@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Register a custom cron schedule for every five minutes

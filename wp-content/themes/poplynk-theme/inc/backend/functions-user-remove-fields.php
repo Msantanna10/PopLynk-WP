@@ -19,6 +19,7 @@ add_filter( 'wp_is_application_passwords_available', '__return_false' );
 add_action('admin_head', function() { ?>
 <style>
     table .user-rich-editing-wrap {display: none;}
+    table .user-syntax-highlighting-wrap {display: none;}
     table .user-comment-shortcuts-wrap {display: none;}
     table .user-admin-bar-front-wrap {display: none;}
     table .user-language-wrap {display: none;}

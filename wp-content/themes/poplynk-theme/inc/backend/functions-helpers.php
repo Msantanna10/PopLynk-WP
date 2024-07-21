@@ -838,3 +838,16 @@ function user_data_profile($user_id) {
     $data['email'] = get_user_by('id', $user_id)->user_email;
     return $data;
 }
+
+/**
+ * Generate a random set of characters containing numbers and letters
+ */
+function generate_unique_id($length = 6) {
+    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $characters_length = strlen($characters);
+    $random_string = '';
+    for ($i = 0; $i < $length; $i++) {
+        $random_string .= $characters[rand(0, $characters_length - 1)];
+    }
+    return $random_string;
+}

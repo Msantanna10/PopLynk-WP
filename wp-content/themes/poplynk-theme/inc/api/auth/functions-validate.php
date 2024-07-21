@@ -46,7 +46,7 @@ function user_token_callback($request) {
   $user_role = new WP_User($user_id);
   $user_role->set_role('member');
   $data['validation']['status'] = true;
-  $data['validation']['error_message'] = 'Conta validada com sucesso! Clique em "Já tem uma conta?" abaixo para começar a aumentar seu engajamento.';
+  $data['validation']['error_message'] = 'Conta validada com sucesso! Clique em "Já tem uma conta?" abaixo para prosseguir com suas metas.';
   $response = new WP_REST_Response($data);
   $response->set_status(200);
   return $response;
