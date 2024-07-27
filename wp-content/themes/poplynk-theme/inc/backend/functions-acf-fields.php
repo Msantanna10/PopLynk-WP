@@ -109,7 +109,7 @@ jQuery(function($){
                     select.find('option').each(function() {
                         var option = $(this);
                         var optionValue = parseInt(option.val(), 10);
-                        if (optionValue < channelSubscribers) {
+                        if (optionValue <= channelSubscribers) {
                             option.prop('disabled', true);
                             if (!option.text().includes(" - Meta alcançada")) {
                                 option.text(option.text() + " - Meta alcançada");

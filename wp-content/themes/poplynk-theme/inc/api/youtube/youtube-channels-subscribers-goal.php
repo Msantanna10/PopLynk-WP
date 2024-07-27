@@ -124,7 +124,7 @@ function youtube_channel_subscribers_callback($request) {
     }
     else {
       $current_subscribers = get_field('youtube_channel_subscribers', $wp_channel_id);
-      $next_possible_goals = [1000, 5000, 10000, 50000, 100000, 250000, 500000, 1000000, 5000000, 10000000, 20000000, 50000000, 100000000, 150000000, 250000000, 500000000, 1000000000];
+      $next_possible_goals = SUBSCRIBER_GOALS;
       $next_goal = '';
       foreach ($next_possible_goals as $goal) {
           if ($goal > $current_subscribers) {

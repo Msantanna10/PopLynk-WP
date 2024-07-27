@@ -2,7 +2,7 @@
 
 Contributors: wordpressdotorg
 Tested up to: 6.6
-Stable tag:   3.3.0
+Stable tag:   3.3.1
 License:      GPLv2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 Tags:         performance, site health, measurement, optimization, diagnostics
@@ -58,6 +58,16 @@ Contributions are always welcome! Learn more about how to get involved in the [C
 
 == Changelog ==
 
+= 3.3.1 =
+
+**Enhancements**
+
+* Add PHPStan strict rules (except for empty.notAllowed). ([1241](https://github.com/WordPress/performance/pull/1241))
+
+**Bug Fixes**
+
+* Allow null to be passed into perflab_admin_pointer(). ([1393](https://github.com/WordPress/performance/pull/1393))
+
 = 3.3.0 =
 
 **Enhancements**
@@ -70,7 +80,7 @@ Contributions are always welcome! Learn more about how to get involved in the [C
 **Bug Fixes**
 
 * Extend core's Autoloaded Options Site Health test if present (in WP 6.6). ([1298](https://github.com/WordPress/performance/pull/1298))
-* Generate phpunit-multisite.xml on the fly. ([1327](https://github.com/WordPress/performance/pull/1327))
+* Fix unit tests for multisite. ([1327](https://github.com/WordPress/performance/pull/1327))
 
 = 3.2.0 =
 
