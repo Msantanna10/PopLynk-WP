@@ -19,7 +19,8 @@ function block_unauthorized_endpoints($result, $wp_rest_server, $request) {
             '/auth/v1/login',
             '/auth/v1/register',
             '/auth/v1/validate',
-            '/auth/v1/forgotpassword'
+            '/auth/v1/forgotpassword',
+            '/contact-form-7/v1/contact-forms/331/feedback',
         );
         if (!in_array($request->get_route(), $allowed_endpoint)) {
             return new WP_Error(
