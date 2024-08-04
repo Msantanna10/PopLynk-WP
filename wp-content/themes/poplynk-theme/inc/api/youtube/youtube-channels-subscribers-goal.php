@@ -132,8 +132,8 @@ function youtube_channel_subscribers_callback($request) {
         'status' => 'progress',
         'subscribers' => $next_goal,
         'description' => text_line_breaks($channel_reward_description),
-        'expiration' => $upload_document,
-        'file' => $channel_reward_description
+        'expiration' => $channel_reward_expiration,
+        'file' => $upload_document
       );
       // Add new row
       add_row('youtube_channel_subscriber_goals', $channel_subscriber_goals, $wp_channel_id);
