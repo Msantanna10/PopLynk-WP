@@ -64,7 +64,7 @@ function youtube_my_videos_callback($request) {
         'views' => (int) get_field('youtube_video_views', $post_id),
         'likes' => (int) get_field('youtube_video_likes', $post_id),
         'comments' => (int) get_field('youtube_video_comments', $post_id),
-        'campaign_status' => get_field('youtube_video_progress', $post_id),
+        'campaign_status' => get_field('youtube_video_status', $post_id),
         'description' => get_field('youtube_video_description', $post_id),
       );
       $count++;

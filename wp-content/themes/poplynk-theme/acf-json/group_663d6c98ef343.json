@@ -94,15 +94,15 @@
         },
         {
             "key": "field_66403926bab1d",
-            "label": "Campaign progress",
-            "name": "youtube_video_progress",
+            "label": "Status",
+            "name": "youtube_video_status",
             "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33.33",
                 "class": "",
                 "id": ""
             },
@@ -130,7 +130,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33.33",
                 "class": "",
                 "id": ""
             },
@@ -151,7 +151,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33.33",
                 "class": "",
                 "id": ""
             },
@@ -167,32 +167,6 @@
             "allow_null": 0,
             "bidirectional": 0,
             "ui": 1,
-            "bidirectional_target": [],
-            "readonly": false
-        },
-        {
-            "key": "field_66495e221f075",
-            "label": "Reward type",
-            "name": "youtube_video_reward_type",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "25",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "reward_type",
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "id",
-            "field_type": "select",
-            "allow_null": 0,
-            "bidirectional": 0,
-            "multiple": 0,
             "bidirectional_target": [],
             "readonly": false
         },
@@ -219,7 +193,7 @@
         },
         {
             "key": "field_66550937e4407",
-            "label": "Campaign description",
+            "label": "Reward description",
             "name": "youtube_video_campaign_description",
             "aria-label": "",
             "type": "textarea",
@@ -239,34 +213,8 @@
             "readonly": false
         },
         {
-            "key": "field_664fddb5b1236",
-            "label": "Image",
-            "name": "youtube_video_reward_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "thumbnail",
-            "readonly": false
-        },
-        {
             "key": "field_664fddd2b1237",
-            "label": "File",
+            "label": "Reward file",
             "name": "youtube_video_reward_file",
             "aria-label": "",
             "type": "file",
@@ -274,7 +222,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -283,45 +231,6 @@
             "min_size": "",
             "max_size": "",
             "mime_types": "",
-            "readonly": false
-        },
-        {
-            "key": "field_664fdd7cb1234",
-            "label": "CTA Link",
-            "name": "youtube_video_reward_cta_link",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "readonly": false
-        },
-        {
-            "key": "field_664fdda7b1235",
-            "label": "CTA Text",
-            "name": "youtube_video_reward_cta_text",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
             "readonly": false
         },
         {
@@ -518,5 +427,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1717288324
+    "modified": 1722783444
 }

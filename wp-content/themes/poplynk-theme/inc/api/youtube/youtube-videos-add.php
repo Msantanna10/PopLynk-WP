@@ -22,13 +22,8 @@ function youtube_videos_add_update_callback($request) {
     $video_description = sanitize_textarea_field(str_replace('\\n', "\n", $request['video_description'] ?? ''));
     $campaign_name = esc_sql($request['campaign_name'] ?? null);
     $video_goals = json_decode(stripslashes($request['goals'] ?? ''), true) ?? null;
-    $reward_type_id = esc_sql($request['reward_type'] ?? null);
     $reward_description = sanitize_textarea_field(str_replace('\\n', "\n", $request['reward_description'] ?? ''));    
     $video_wp_id = esc_sql($request['update_post_id'] ?? false);
-    
-    $reward_image = esc_sql($request['reward_image'] ?? null);
-    $reward_cta_link = esc_sql($request['reward_cta_link'] ?? null);
-    $reward_cta_text = esc_sql($request['reward_cta_text'] ?? null);
     $reward_file = !empty($_FILES['reward_file']['name']) ? $_FILES['reward_file'] : null;
 
     // If it's an invalid user
@@ -53,25 +48,12 @@ function youtube_videos_add_update_callback($request) {
         if (!is_array($video_goals) || empty($video_goals)) {
             return api_error('Houve um erro com seus objetivos! Atualize a página e tente novamente.');
         }
-        if (!is_valid_term_id($reward_type_id, 'reward_type')) {
-            return api_error('O tipo de recompensa não é válido.');
-        }
-    }
-
-    // Upload image and return its ID
-    $upload_image = null;
-    if ($reward_image && $reward_type_id == '2') {
-        $upload_image = wp_upload_file($reward_image, 'image', array('jpeg', 'jpg', 'png'), $user_id);
-        if (!$upload_image) {
-            return api_error('Houve um erro ao enviar sua imagem! Verifique os tipos permitidos e tente novamente.');
-        }
-        $upload_image = $upload_image['file_id'];
     }
 
     // Upload file and return its ID
     $upload_document = null;
-    if ($reward_file && $reward_type_id == '3') {
-        $upload_document = wp_upload_file($_FILES['reward_file'], 'document', array('pdf', 'xls', 'xlsx'), $user_id);
+    if ($reward_file) {
+        $upload_document = wp_upload_file($_FILES['reward_file'], 'document', array('pdf', 'xls', 'xlsx', 'zip'), $user_id);
         if (!$upload_document) {
             return api_error('Houve um erro ao enviar seu arquivo! Verifique os tipos permitidos e tente novamente.');
         }
@@ -101,26 +83,13 @@ function youtube_videos_add_update_callback($request) {
     if ($channel_wp_id) {
         $meta_input['youtube_video_channel'] = $channel_wp_id;
     }
-    if ($reward_type_id) {
-        $meta_input['youtube_video_reward_type'] = $reward_type_id;
-    }
     if ($reward_description) {
         $meta_input['youtube_video_campaign_description'] = text_line_breaks($reward_description);
     }
-    if ($reward_cta_link) {
-        $meta_input['youtube_video_reward_cta_link'] = $reward_cta_link;
+    if (!$video_wp_id) {
+        $meta_input['youtube_video_status'] = 'progress';
     }
-    if ($reward_cta_text) {
-        $meta_input['youtube_video_reward_cta_text'] = to_title_case($reward_cta_text);
-    }
-
-    if ($upload_image) {
-        $meta_input['youtube_video_reward_image'] = $upload_image;
-    }
-
-    if ($upload_document) {
-        $meta_input['youtube_video_reward_file'] = $upload_document;
-    }
+    $meta_input['youtube_video_reward_file'] = $upload_document;
 
     // Update existing post
     if ($video_wp_id) {
@@ -144,7 +113,15 @@ function youtube_videos_add_update_callback($request) {
     if ($video_wp_id && is_array($video_goals) && !empty($video_goals)) {
         delete_post_meta($video_wp_id, 'youtube_video_goals');
         foreach ($video_goals as $goal) {
-            $expiration_date = calculate_expiration_date($goal['expiration']['value'] ?? '');
+            $expiration_date = $goal['expiration']['value'] ?? '';
+            // Validate date format YYYY-MM-DD
+            if (!empty($expiration_date) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $expiration_date)) {
+                $date = new DateTime($expiration_date);
+                $date->setTime(23, 59, 0); // Set time to 23:59:00
+                $expiration_date = $date->format('Y-m-d H:i:s');
+            } else {
+                $expiration_date = '';
+            }
             $goal_row = array(
                 'views' => sanitize_text_field($goal['views']['value'] ?? ''),
                 'likes' => sanitize_text_field($goal['likes']['value'] ?? ''),
@@ -152,7 +129,8 @@ function youtube_videos_add_update_callback($request) {
                 'expiration' => $expiration_date,
             );
             add_row('youtube_video_goals', $goal_row, $video_wp_id);
-        }
+        }        
+        
     }
 
     // Success
@@ -160,16 +138,4 @@ function youtube_videos_add_update_callback($request) {
     $response = new WP_REST_Response($data);
     $response->set_status(200);
     return $response;
-}
-
-/**
- * Expiration date based on number + current date
- */
-function calculate_expiration_date($expiration_value) {
-    if (is_numeric($expiration_value)) {
-        $expiration_days = intval($expiration_value);
-        $current_time = current_time('Y-m-d H:i:s');
-        return date('Y-m-d H:i:s', strtotime($current_time . " + {$expiration_days} days"));
-    }
-    return '';
 }

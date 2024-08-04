@@ -276,8 +276,8 @@
                 },
                 {
                     "key": "field_6681c065a47d4",
-                    "label": "Progress",
-                    "name": "progress",
+                    "label": "Status",
+                    "name": "status",
                     "aria-label": "",
                     "type": "select",
                     "instructions": "",
@@ -290,7 +290,8 @@
                     },
                     "choices": {
                         "progress": "In Progress",
-                        "successful": "Successful"
+                        "successful": "Successful",
+                        "failed": "Failed"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -356,29 +357,22 @@
                     "parent_repeater": "field_668174790ac99"
                 },
                 {
-                    "key": "field_6681b92d38a7e",
-                    "label": "Reward Type",
-                    "name": "reward_type",
+                    "key": "field_66aab06b625cd",
+                    "label": "Expiration",
+                    "name": "expiration",
                     "aria-label": "",
-                    "type": "taxonomy",
+                    "type": "date_time_picker",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "33.33",
                         "class": "",
                         "id": ""
                     },
-                    "taxonomy": "reward_type",
-                    "add_term": 0,
-                    "save_terms": 0,
-                    "load_terms": 0,
-                    "return_format": "id",
-                    "field_type": "select",
-                    "allow_null": 0,
-                    "bidirectional": 0,
-                    "multiple": 0,
-                    "bidirectional_target": [],
+                    "display_format": "F j, Y g:i a",
+                    "return_format": "Y-m-d H:i:s",
+                    "first_day": 1,
                     "readonly": false,
                     "parent_repeater": "field_668174790ac99"
                 },
@@ -414,7 +408,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "33.33",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
@@ -423,47 +417,6 @@
                     "min_size": "",
                     "max_size": "",
                     "mime_types": "",
-                    "readonly": false,
-                    "parent_repeater": "field_668174790ac99"
-                },
-                {
-                    "key": "field_66817aef6fbc0",
-                    "label": "CTA Link",
-                    "name": "cta_link",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33.33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "readonly": false,
-                    "parent_repeater": "field_668174790ac99"
-                },
-                {
-                    "key": "field_66817b076fbc1",
-                    "label": "CTA Text",
-                    "name": "cta_text",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33.33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
                     "readonly": false,
                     "parent_repeater": "field_668174790ac99"
                 }
@@ -508,5 +461,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722114340
+    "modified": 1722783387
 }

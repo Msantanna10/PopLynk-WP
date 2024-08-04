@@ -149,18 +149,19 @@ function youtube_channel_data_from_wordpress_id($wp_channel_id) {
                 $channel_subscriber_goals_file_name = get_the_title($channel_subscriber_goals_file) ?: '';
             }
 
+            if (!empty($goal['expiration'])) {
+                $expiration_date = new DateTime($goal['expiration']);
+                $goal['expiration'] = $expiration_date->format('Y-m-d');
+            }
+
             $channel_subscriber_goals_organized[] = array(
-                'progress' => (string) $goal['progress'],
+                'status' => (string) $goal['status'],
                 'goal' => (int) $goal['subscribers'],
-                'reward_type' => (string) $goal['reward_type'],
                 'reward_description' => (string) $goal['description'],
+                'reward_expiration' => (string) $goal['expiration'],
                 'reward_file' => array(
                     'name' => (string) $channel_subscriber_goals_file_name,
                     'url' => (string) $channel_subscriber_goals_file_url
-                ),
-                'reward_cta' => array(
-                    'link' => (string) $goal['cta_link'],
-                    'text' => (string) $goal['cta_text']
                 )
             );
         }
@@ -706,17 +707,8 @@ function wp_video_data($video_youtube_id = false, $channel_youtube_id = false, $
     $video_likes = (int) get_field('youtube_video_likes', $video_wp_id);
     $video_comments = (int) get_field('youtube_video_comments', $video_wp_id);
     $video_description = get_field('youtube_video_description', $video_wp_id);
-    $video_progress = get_field('youtube_video_progress', $video_wp_id);
-    $video_reward_type = get_field('youtube_video_reward_type', $video_wp_id);
+    $video_status = get_field('youtube_video_status', $video_wp_id);
     $video_reward_description = get_field('youtube_video_campaign_description', $video_wp_id);    
-    $video_reward_image = get_field('youtube_video_reward_image', $video_wp_id);
-    // Image
-    $video_reward_image_url = '';
-    $video_reward_image_name = '';
-    if ($video_reward_image) {
-        $video_reward_image_url = wp_get_attachment_url($video_reward_image) ?: '';
-        $video_reward_image_name = basename(get_attached_file($video_reward_image)) ?: '';
-    }
     // File
     $video_reward_file = get_field('youtube_video_reward_file', $video_wp_id);
     $video_reward_file_url = '';
@@ -725,8 +717,6 @@ function wp_video_data($video_youtube_id = false, $channel_youtube_id = false, $
         $video_reward_file_url = wp_get_attachment_url($video_reward_file) ?: '';
         $video_reward_file_name = get_the_title($video_reward_file) ?: '';
     }
-    $video_reward_cta_link = get_field('youtube_video_reward_cta_link', $video_wp_id);
-    $video_reward_cta_text = get_field('youtube_video_reward_cta_text', $video_wp_id);
     $video_reward_goals = get_field('youtube_video_goals', $video_wp_id);
 
     // Updated expiration
@@ -737,9 +727,7 @@ function wp_video_data($video_youtube_id = false, $channel_youtube_id = false, $
         foreach ($video_reward_goals as $goal) {
             if (!empty($goal['expiration'])) {
                 $expiration_date = new DateTime($goal['expiration']);
-                $interval = $today->diff($expiration_date);
-                $days_left = $interval->format('%r%a'); // %r gives a sign prefix, %a gives the total number of days
-                $goal['expiration'] = ($days_left > 0) ? (int) $days_left : '';
+                $goal['expiration'] = $expiration_date->format('Y-m-d');
             }
             $video_updated_goals[] = $goal;
         }
@@ -753,18 +741,9 @@ function wp_video_data($video_youtube_id = false, $channel_youtube_id = false, $
         'video_views' => $video_views,
         'video_likes' => $video_likes,
         'video_comments' => $video_comments,
-        'video_progress' => (string) $video_progress,
+        'video_status' => (string) $video_status,
         'video_description' => (string) $video_description,
-        'video_reward_type' => (string) $video_reward_type,
         'video_reward_description' => (string) $video_reward_description,
-        'video_reward_cta' => array(
-            'link' => (string) $video_reward_cta_link,
-            'text' => (string) $video_reward_cta_text
-        ),
-        'video_reward_image' => array(
-            'name' => (string) $video_reward_image_name,
-            'url' => (string) $video_reward_image_url
-        ),
         'video_reward_file' => array(
             'name' => (string) $video_reward_file_name,
             'url' => (string) $video_reward_file_url

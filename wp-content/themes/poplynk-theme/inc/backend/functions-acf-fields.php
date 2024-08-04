@@ -80,7 +80,7 @@ jQuery(function($){
 
                     // Append progress and subscribers text based on the pipe count
                     if (pipeCount === 0) {
-                        var progressText = $(item).find('[data-name="progress"] select option:selected').text();
+                        var progressText = $(item).find('[data-name="status"] select option:selected').text();
                         if (progressText) {
                             labelText += ' | ' + progressText;
                             pipeCount++; // Increment pipe count since we added one

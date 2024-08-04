@@ -14,6 +14,11 @@ function custom_ten_minutes_cron_schedule($schedules) {
         'interval' => 3600, // 3600 seconds = 1 hour
         'display' => __('Every Hour')
     );
+    // Adding a thirty minutes interval
+    $schedules['every_thirty_minutes'] = array(
+        'interval' => 1800, // 1800 seconds = 30 minutes
+        'display' => __('Every Thirty Minutes')
+    );
     return $schedules;
 }
 
@@ -22,7 +27,7 @@ if (!wp_next_scheduled('cronjob_ten_minutes')) {
 }
 
 if (!wp_next_scheduled('update_channel_data_event')) {
-    wp_schedule_event(time(), 'hourly', 'cronjob_hourly');
+    wp_schedule_event(time(), 'every_thirty_minutes', 'cronjob_thirty_minutes');
 }
 
 /**
@@ -35,14 +40,14 @@ function cron_update_video_data() {
         'post_type'   => 'youtube_videos',
         'post_status' => 'publish',
         'fields'      => 'ids',
-        'posts_per_page' => 3,
+        'posts_per_page' => 10,
         'orderby' => 'date',
         'order'   => 'DESC',
         'fields'  => 'ids',
         'meta_query' =>  array(
             'relation' => 'AND',
             array(
-                'key'     => 'youtube_video_progress',
+                'key'     => 'youtube_video_status',
                 'value'   => 'progress',
                 'compare' => '='
             ),
@@ -70,7 +75,7 @@ function cron_update_video_data() {
     if ($query->have_posts()) {
         $post_ids = $query->posts;
         foreach ($post_ids as $post_id) {
-            $minutes = 120;
+            $minutes = 60;
             $date = new DateTime($current_time);
             $date->modify("+{$minutes} minutes");
             $new_time = $date->format('Y-m-d H:i:s');
@@ -84,14 +89,14 @@ function cron_update_video_data() {
 /**
  * Update channel data based on the Youtube API
  */
-add_action('cronjob_hourly', 'cron_update_channel_data');
+add_action('cronjob_ten_minutes', 'cron_update_channel_data');
 function cron_update_channel_data() {
     $current_time = current_time('Y-m-d H:i:s');
     $args = array(
         'post_type'   => 'youtube_channels',
         'post_status' => 'publish',
         'fields'      => 'ids',
-        'posts_per_page' => 3,
+        'posts_per_page' => 10,
         'orderby' => 'date',
         'order'   => 'DESC',
         'fields'  => 'ids',
@@ -118,7 +123,7 @@ function cron_update_channel_data() {
     if ($query->have_posts()) {
         $post_ids = $query->posts;
         foreach ($post_ids as $post_id) {
-            $minutes = 120;
+            $minutes = 60;
             $date = new DateTime($current_time);
             $date->modify("+{$minutes} minutes");
             $new_time = $date->format('Y-m-d H:i:s');

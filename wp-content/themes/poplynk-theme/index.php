@@ -60,7 +60,7 @@ function is_goal_successful($post_id) {
     if(empty($close_date) && $successful_goals) {        
         $today = current_time('Y-m-d H:i:s');
         update_field('youtube_video_close_date', $today, $post_id);
-        update_field('youtube_video_progress', 'successful', $post_id);
+        update_field('youtube_video_status', 'successful', $post_id);
         app_revalidate("campaign_youtube_$video_id");
     }
 
@@ -79,7 +79,7 @@ if ($successful_goal_indexes !== false) {
 
 $channel_subscriber_goals = get_field('youtube_channel_subscriber_goals', 76);
 $has_progress = array_reduce($channel_subscriber_goals, function($carry, $item) {
-    return $carry || ($item['progress'] === 'progress');
+    return $carry || ($item['status'] === 'progress');
   }, false);
 
   if($has_progress) {
