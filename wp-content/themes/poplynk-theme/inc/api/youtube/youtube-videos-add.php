@@ -57,7 +57,11 @@ function youtube_videos_add_update_callback($request) {
         if (!$upload_document) {
             return api_error('Houve um erro ao enviar seu arquivo! Verifique os tipos permitidos e tente novamente.');
         }
-        $upload_document = $upload_document['file_id'];
+        $reward_file = $upload_document['file_id'];
+    }
+    // No file name or file has been removed
+    else if (isset($_POST['reward_file']) && $_POST['reward_file'] === '') {
+        $reward_file = '';
     }
 
     // Array of field values
@@ -89,14 +93,16 @@ function youtube_videos_add_update_callback($request) {
     if (!$video_wp_id) {
         $meta_input['youtube_video_status'] = 'progress';
     }
-    $meta_input['youtube_video_reward_file'] = $upload_document;
+    if ($reward_file !== null) {
+        $meta_input['youtube_video_reward_file'] = $reward_file;
+    }
 
     // Update existing post
     if ($video_wp_id) {
         wp_update_post(array(
             'ID' => $video_wp_id,
             'meta_input' => $meta_input,
-        ));      
+        ));
     } 
     // Insert new campaign
     else {

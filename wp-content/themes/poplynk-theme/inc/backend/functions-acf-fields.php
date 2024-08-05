@@ -23,7 +23,7 @@ jQuery(function($){
     });
 
     // Disable sorting for specific repeaters
-    $('[data-name="youtube_channel_subscriber_goals"] table.acf-table td.order').removeClass("order");
+    // $('[data-name="youtube_channel_subscriber_goals"] table.acf-table td.order').removeClass("order");
 
     // Block adding or removing rows
     // $('[data-name="youtube_channel_subscriber_goals"] .acf-actions, [data-name="youtube_channel_subscriber_goals"] .remove').remove();
